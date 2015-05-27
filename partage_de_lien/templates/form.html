@@ -1,0 +1,17 @@
+{% extends 'squelette.html' %}
+
+{% block titre %}
+{{ titre }}
+{% endblock %}
+
+{% block form %}
+<form method="POST">
+	<label for="titre">Titre</label>
+    	<input type="text" name="titre"></input>
+    <label for="lien">Lien</label>
+        <input type="text" name="lien"></input>
+    <label for="description">Description</label>
+        <textarea type="text" name="description"></textarea> 
+    <input type="submit" name="submit" value="{{ bouton }}"></input>   
+</form>
+{% endblock %}
