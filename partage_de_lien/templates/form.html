@@ -6,12 +6,18 @@
 
 {% block form %}
 <form method="POST">
-	<label for="titre">Titre</label>
-    	<input type="text" name="titre"></input>
-    <label for="lien">Lien</label>
-        <input type="text" name="lien"></input>
-    <label for="description">Description</label>
-        <textarea type="text" name="description"></textarea> 
-    <input type="submit" name="submit" value="{{ bouton }}"></input>   
+            <div class="row">
+                  <div class="col-md-3"></div>
+	       <div class="col-md-3"><label for="titre">Titre</label>
+    	       <input type="text" name="titre"></input></div>
+                   <div class="col-md-3"><label for="lien">Lien</label>
+                   <input type="url" name="lien"></input></div>
+                   <div class="col-md-3"></div>
+           </div class="row">
+           <div class="row">
+                   <div class="col-md-1"> <label for="description">Description</label></div>
+                   <div class="col-md-9"><textarea type="text" class="form-control" rows="7" name="description"></textarea></div>
+                   <div class="col-md-1"><input type="submit" class="btn btn-success" name="submit" value="{{ bouton }}"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></input></div>
+    </div>
 </form>
 {% endblock %}

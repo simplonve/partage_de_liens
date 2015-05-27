@@ -6,9 +6,21 @@
 {% endblock %}
 
 {% block form %}
+<div class="row">
+            <div class = "col-md-4"></div>
+            <div class="col-md-4"><h2>Ajoutez un lien</h2></div>
+            <div class="col-md-4"></div>
+</div>
 <form method="POST">
-	<input type="submit" name="submit" value="ajouter"></input>  
-    <input type="submit" name="submit" value="modifier"></input>  
-    <input type="submit" name="submit" value="supprimer"></input>  
+             <div class="row">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-1"><input type="submit" class="btn btn-primary btn-lg" name="submit" value="ajouter"></input></div>
+	      <div class="col-md-6"></div>
+	</div>
+	<div class="row">
+                   <div class="col-md-8"></div>
+                   <div class="col-md-2"><input type="submit" class="btn btn-warning" name="submit" value="modifier"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></input></div>
+                   <div class="col-md-2"><input type="submit" class="btn btn-danger" name="submit" value="supprimer"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></input></div>
+            </div>
 </form>
 {% endblock %}
