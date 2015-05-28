@@ -5,22 +5,34 @@
 {{ titre }}
 {% endblock %}
 
-{% block form %}
+{% block corps %}
 <div class="row">
             <div class = "col-md-4"></div>
             <div class="col-md-4"><h2>Ajoutez un lien</h2></div>
             <div class="col-md-4"></div>
 </div>
 <form method="POST">
-             <div class="row">
+   <div class="row">
                   <div class="col-md-5"></div>
                   <div class="col-md-1"><input type="submit" class="btn btn-primary btn-lg" name="submit" value="ajouter"></input></div>
 	      <div class="col-md-6"></div>
 	</div>
+</form>
+
+
+{% for lien in list_lien %}
+<form method="POST">
+
 	<div class="row">
                    <div class="col-md-8"></div>
                    <div class="col-md-2"><input type="submit" class="btn btn-warning" name="submit" value="modifier"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></input></div>
                    <div class="col-md-2"><input type="submit" class="btn btn-danger" name="submit" value="supprimer"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></input></div>
             </div>
+    <label for="del">{{ lien['titre'] }} -> {{ lien['url'] }} - {{ lien['description'] }}</label>
+    <input type="hidden" name="id" value="{{ lien['id'] }}"/>
+    <input type="hidden" name="titre" value="{{ lien['titre'] }}"/>
+    <input type="hidden" name="url" value="{{ lien['url'] }}"/>
+    <input type="hidden" name="description" value="{{ lien['description'] }}"/>
 </form>
+{% endfor %}
 {% endblock %}

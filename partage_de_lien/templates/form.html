@@ -4,20 +4,21 @@
 {{ titre }}
 {% endblock %}
 
-{% block form %}
+{% block corps %}
 <form method="POST">
             <div class="row">
                   <div class="col-md-3"></div>
 	       <div class="col-md-3"><label for="titre">Titre</label>
-    	       <input type="text" name="titre"></input></div>
+    	       <input type="text" name="titre" value="{{ title }}"></input></div>
                    <div class="col-md-3"><label for="lien">Lien</label>
-                   <input type="url" name="lien"></input></div>
+                   <input type="url" name="lien" value="{{ url }}"></input></div>
                    <div class="col-md-3"></div>
            </div class="row">
            <div class="row">
                    <div class="col-md-1"> <label for="description">Description</label></div>
-                   <div class="col-md-9"><textarea type="text" class="form-control" rows="7" name="description"></textarea></div>
+                   <div class="col-md-9"><textarea class="form-control" rows="7" name="description">{{ descr }}</textarea></div>
                    <div class="col-md-1"><input type="submit" class="btn btn-success" name="submit" value="{{ bouton }}"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></input></div>
+               <input type="hidden" name="id" value="{{ id }}"/>
     </div>
 </form>
 {% endblock %}
