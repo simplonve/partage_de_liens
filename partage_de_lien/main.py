@@ -54,7 +54,7 @@ def teardown_request(exception):
 @app.route('/', methods=['GET', 'POST'])
 def main():
     if request.method == "GET":
-        list_lien = list(rdb.table('lien').run(g.rdb_conn))
+        list_lien = list(rdb.table('lien').order_by('titre').run(g.rdb_conn))
         return render_template('index.html', list_lien=list_lien)
 
     else:
@@ -74,7 +74,7 @@ def main():
                 lien = request.form['lien']
                 descr = request.form['description']
                 modif(titre, lien, descr, id)
-                list_lien = list(rdb.table('lien').run(g.rdb_conn))
+                list_lien = list(rdb.table('lien').order_by('titre').run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien)
 
             elif request.form["submit"] == "insert":
@@ -82,13 +82,13 @@ def main():
                 lien = request.form['lien']
                 descr = request.form['description']
                 requet(titre, lien, descr)
-                list_lien = list(rdb.table('lien').run(g.rdb_conn))
+                list_lien = list(rdb.table('lien').order_by('titre').run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien)
 
             elif request.form["submit"] == "supprimer":
                 id = request.form['id']
                 delete(id)
-                list_lien = list(rdb.table('lien').run(g.rdb_conn))
+                list_lien = list(rdb.table('lien').order_by('titre').run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien)
 
 

@@ -23,12 +23,21 @@
 {% for lien in list_lien %}
 <form method="POST">
 
-	<div class="row">
+    <a href="{{ lien['url'] }}">{{ lien['titre'] }}</a> => description : {{ lien['description'] }}
+
+
+
+            <div class="row">
                    <div class="col-md-8"></div>
                    <div class="col-md-2"><input type="submit" class="btn btn-warning" name="submit" value="modifier"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></input></div>
                    <div class="col-md-2"><input type="submit" class="btn btn-danger" name="submit" value="supprimer"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></input></div>
             </div>
-    <label for="del">{{ lien['titre'] }} -> {{ lien['url'] }} - {{ lien['description'] }}</label>
+
+
+
+
+
+
     <input type="hidden" name="id" value="{{ lien['id'] }}"/>
     <input type="hidden" name="titre" value="{{ lien['titre'] }}"/>
     <input type="hidden" name="url" value="{{ lien['url'] }}"/>
