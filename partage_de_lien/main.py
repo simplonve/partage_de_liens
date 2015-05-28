@@ -22,16 +22,16 @@ def dbSetup():
     finally:
         connection.close()
 
-def requet(titre, url, description):
-    rdb.db('partage').table('lien').insert([{ 'titre' : titre, 'url' : url, 'description' : description}]).run(g.rdb_conn)
+def requet(titre, url, description, categorie):
+    rdb.db('partage').table('lien').insert([{ 'titre' : titre, 'url' : url, 'description' : description, 'categorie' : categorie}]).run(g.rdb_conn)
     flash('Task Added')
 
 def delete(id):
     rdb.db('partage').table("lien").get(id).delete().run(g.rdb_conn)
     flash('Lien supprimer')
 
-def modif(titre, url, description, id):
-    rdb.db('partage').table("lien").get(id).update({ 'titre' : titre, 'url' : url, 'description' : description}).run(g.rdb_conn)
+def modif(titre, url, description, id, categorie):
+    rdb.db('partage').table("lien").get(id).update({ 'titre' : titre, 'url' : url, 'description' : description, 'categorie' : categorie}).run(g.rdb_conn)
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -65,15 +65,17 @@ def main():
                 id = request.form['id']
                 titre = request.form['titre']
                 lien = request.form['url']
+                categorie = request.form['categorie']
                 description = request.form['description']
-                return render_template('form.html', titre='Modifier un lien', bouton='update', title=titre, url=lien, descr=description, id=id)
+                return render_template('form.html', titre='Modifier un lien', bouton='update', title=titre, url=lien, descr=description, id=id, cat=categorie)
 
             elif request.form["submit"] == "update":
                 id = request.form['id']
                 titre = request.form['titre']
                 lien = request.form['lien']
                 descr = request.form['description']
-                modif(titre, lien, descr, id)
+                categorie = request.form['categorie']
+                modif(titre, lien, descr, id, categorie)
                 list_lien = list(rdb.table('lien').order_by('titre').run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien)
 
@@ -81,7 +83,8 @@ def main():
                 titre = request.form['titre']
                 lien = request.form['lien']
                 descr = request.form['description']
-                requet(titre, lien, descr)
+                categorie = request.form['categorie']
+                requet(titre, lien, descr, categorie)
                 list_lien = list(rdb.table('lien').order_by('titre').run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien)
 
@@ -91,6 +94,10 @@ def main():
                 list_lien = list(rdb.table('lien').order_by('titre').run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien)
 
+            elif request.form["submit"] == "tri":
+                categorie = request.form['categorie']
+                list_lien = list(rdb.table('lien').filter({'categorie' : categorie}).run(g.rdb_conn))
+                return render_template('index.html', list_lien=list_lien, cat=categorie)
 
 if __name__ == '__main__':
     app.secret_key = '\xf8\xff\xbc\xfe\xde\x03\x8b\x81\xc9\x9c\xc4\xbe\x95\xa2\xf2'
