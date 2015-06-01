@@ -41,7 +41,7 @@
 {% for lien in list_lien %}
 <form method="POST">
 
-    <a href="{{ lien['url'] }}">{{ lien['titre'] }}</a> => description : {{ lien['description'] }}
+    <a href="{{ lien['url'] }}">{{ lien['titre'] }}</a> => description : {{ lien['description'] }} {{ lien['categorie'] }}
 
 
 
@@ -57,6 +57,7 @@
     <input type="hidden" name="titre" value="{{ lien['titre'] }}"/>
     <input type="hidden" name="url" value="{{ lien['url'] }}"/>
     <input type="hidden" name="description" value="{{ lien['description'] }}"/>
+    <input type="hidden" name="categorie" value="{{ lien['categorie'] }}"/>
 </form>
 {% endfor %}
 {% endblock %}
