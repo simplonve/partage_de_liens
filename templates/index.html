@@ -1,0 +1,61 @@
+{% extends 'squelette.html' %}
+
+
+{% block titre %}
+{{ title }}
+{% endblock %}
+
+
+{% block ajout %}
+<form method="POST">
+   <div class="row">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-1"><input type="submit" class="btn btn-primary btn-lg" name="submit" value="ajouter"></input></div>
+	      <div class="col-md-6"></div>
+	</div>
+</form>
+{% endblock %}
+
+
+
+{% block categorie %}
+<form  method="POST">
+               <select name="categorie" size="5">
+               <option value="/culture">Culture
+               <option value="/videos">Videos
+               <option value="/tutos">Tutoriels
+               <option value="/logiciels">Logiciels
+               <option value="/doc">Documentations
+              </select>
+              <input type="submit" name="submit" value="tri"></div>
+</form>
+{% endblock %}
+
+{% block corps %}
+<div class="modal-fade">
+      <div class="modal-dialog">
+           <div class="modal-content">
+{% for lien in list_lien %}
+<form method="POST">
+            <div class="modal-header"><h3 class="modal-title"><a href="{{ lien['url'] }}">{{ lien['titre'] }}</a></h3>
+            </div>
+             <div class="modal-body"><p>Description  : {{ lien['description'] }}</p>
+             </div>
+            <div class="modal-footer">
+                   <input type="submit" class="btn btn-warning" data-dismiss="modal" name="submit" value="modifier"></input>
+                   <input type="submit" class="btn btn-danger" name="submit" value="supprimer"></input>
+            </div>
+
+
+
+
+    <input type="hidden" name="id" value="{{ lien['id'] }}"/>
+    <input type="hidden" name="titre" value="{{ lien['titre'] }}"/>
+    <input type="hidden" name="url" value="{{ lien['url'] }}"/>
+    <input type="hidden" name="description" value="{{ lien['description'] }}"/>
+</form>
+{% endfor %}
+         </div>
+      </div>
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+/rethink_data/*
+/rethink_data/tmp/*
+/rethink_data/*auth_metadata
+/rethinkdb_data/*log_file
+/rethink/*metadata

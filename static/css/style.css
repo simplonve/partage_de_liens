@@ -1,0 +1,12 @@
+nav h1 {
+	color: #B1A3F9;
+}
+h2 {
+	text-align: center;
+}
+body {
+	background-image: url(/static/1024px-Internet1-2.png);
+	width: auto;
+	margin-bottom: 100px;
+	background-size: cover;
+}
