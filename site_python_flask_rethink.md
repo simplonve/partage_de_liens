@@ -49,3 +49,4 @@ Dans le jargon, pour désigner une fonction qui renvoie une page web, on utilise
 Par conséquent, chaque fonction décorée par @app.route est une vue.`
 (Ici ce fichier correspond au fichier app.rb dans sinatra). 
 
+
