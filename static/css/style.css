@@ -1,5 +1,5 @@
 nav h1 {
-	color: #33CC33;
+	color: #9FE6C3;
 }
 h2 {
 	text-align: center;
@@ -12,4 +12,7 @@ body {
 	width: auto;
 	margin-bottom: 100px;
 	background-size: cover;
+}
+#noir {
+	color: black;
 }

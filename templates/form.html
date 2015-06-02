@@ -5,20 +5,18 @@
 {% endblock %}
 
 {% block corps %}
+
 <form method="POST">
-     <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-2"><label for="titre">Titre</label>
+       <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3"><label for="titre">Titre :</label>
     	        <input type="text" name="titre" value="{{ title }}"></input>
-            </div>
-            <div class="col-md-2"><label for="lien">Lien</label>
+                    <label for="lien">Lien :</label>
                     <input type="url" name="lien" value="{{ url }}"></input>
-            </div>
-            <div class="col-md-2"><h3>Choisissez une catégorie<h3>
-            </div>
-            <div class="col-md-2">
-                    <select name="categorie" size="5">
+             </div>
+             <div class="col-md-1"></div>
+             <div class="col-md-4"><h4 id="noir">Choisissez une catégorie : </h4></div>
+             <div class="col-md-2"><select name="categorie" size="5">
                         <option value="/culture">Culture
                         <option value="/videos">Videos
                         <option value="/tutos">Tutoriels
@@ -26,23 +24,15 @@
                         <option value="/doc">Documentations
                     </select>
              </div>
-            <div class="col-md-4">
-            </div>
-    </div class="row">
-    <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-1">
-            <label for="description">Description</label>
-            </div>
-            <div class="col-md-7"><textarea class="form-control" rows="5" name="description" placeholder="Mettez une description ici :">{{ descr }}</textarea>
-            </div>
-            <div class="col-md-3">
-            </div>
-      </div>
-      <div class="row">
-
-      <div class="col-md-6 col-md-offset-3"><br /><input type="submit" class="btn btn-success"  name="submit" value="{{ bouton }}"></input><input type="hidden" name="id" value="{{ id }}"/>
+             </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5"<label for="description"><h4 id="noir" text-align="center"> Description :</h4></label></div>
         </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1"><textarea class="form-control" rows="5" name="description" placeholder="Merci de rajouter une description ici :">{{ descr }}</textarea>
+            </div>
+        </div>
+        <div class="row">
+              <div class="col-md-10 col-md-offset-1"><br /><input type="submit" class="btn btn-success"  name="submit" value="{{ bouton }}"></input><input type="hidden" name="id" value="{{ id }}" /></div>
 </form>
 {% endblock %}
