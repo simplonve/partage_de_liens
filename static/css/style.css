@@ -1,8 +1,11 @@
 nav h1 {
-	color: #B1A3F9;
+	color: #33CC33;
 }
 h2 {
 	text-align: center;
+}
+h4 {
+	color: #FFCCFF;
 }
 body {
 	background-image: url(/static/1024px-Internet1-2.png);
