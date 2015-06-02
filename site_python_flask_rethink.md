@@ -43,10 +43,11 @@ Faites cela de votre côté et gardez votre clé bien secrète.
 à la ligne 12 de notre code. Lorsque l'on appelle la méthode run() de app, 
 le serveur HTTP + WSGI de Flask est automatiquement lancé. 
 Le coeur du code, c’est la fonction index, c’est elle qui se charge de renvoyer “Hello !”.
-’on a décoré cette fonction avec le décorateur @app.route qui prend en paramètre une route. 
+On a décoré cette fonction avec le décorateur @app.route qui prend en paramètre une route. 
 Cette route est celle par laquelle notre fonction sera accessible.
 Dans le jargon, pour désigner une fonction qui renvoie une page web, on utilise le mot vue.
 Par conséquent, chaque fonction décorée par @app.route est une vue.`
-(Ici ce fichier correspond au fichier app.rb dans sinatra). 
+(Ici ce fichier correspond au fichier app.rb dans sinatra).
+ 
 
 
