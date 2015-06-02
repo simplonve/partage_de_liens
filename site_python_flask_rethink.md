@@ -37,7 +37,7 @@ app.debug = True
 Cela revient au même : l'objet app est configurable. On peut par exemple lui configurer sa clé secrète (qui sera indispensable 
 pour sécuriser les sessions des visiteurs, mais nous n'en sommes pas encore là). Il suffit de faire :
 
-`app.secret_key = '2d9-E2.)f&é,A$p@fpa+zSU03êû9_`
+`app.secret_key = '2d9-E2.)f&é,A$p@fpa+zSU03êû9_'`
 
 Faites cela de votre côté et gardez votre clé bien secrète.
 à la ligne 12 de notre code. Lorsque l'on appelle la méthode run() de app, 
