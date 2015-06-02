@@ -3,6 +3,7 @@
 import os
 from datetime import date
 import rethinkdb as rdb
+import jeudelavie as jdv
 from rethinkdb.errors import RqlRuntimeError, RqlDriverError
 from time import localtime, strftime
 from flask import Flask, request, redirect, flash, render_template, g, jsonify, abort
@@ -49,7 +50,6 @@ def teardown_request(exception):
         g.rdb_conn.close()
     except AttributeError:
         pass
-
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
@@ -98,6 +98,10 @@ def main():
                 categorie = request.form['categorie']
                 list_lien = list(rdb.table('lien').filter({'categorie' : categorie}).run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien, cat=categorie)
+
+@app.route('/Jeudelavie')
+def gameoflife():
+    return render_template('jeudelavie.html', titre='Game Of Life', jeudelavie=jdv)
 
 if __name__ == '__main__':
     app.secret_key = '\xf8\xff\xbc\xfe\xde\x03\x8b\x81\xc9\x9c\xc4\xbe\x95\xa2\xf2'
