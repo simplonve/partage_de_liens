@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block corps %}
-
 <form method="POST">
        <div class="row">
             <div class="col-md-1"></div>
@@ -23,7 +22,7 @@
                         <option value="/logiciels">Logiciels
                         <option value="/doc">Documentations
                         <option value="/ux">UX
-                        <option value="/divers">Divers
+                        <option value="/divers" selected>Divers
                     </select>
              </div>
              </div>
@@ -36,5 +35,6 @@
         </div>
         <div class="row">
               <div class="col-md-10 col-md-offset-1"><br /><input type="submit" class="btn btn-success"  name="submit" value="{{ bouton }}"></input><input type="hidden" name="id" value="{{ id }}" /></div>
+        </div>
 </form>
 {% endblock %}

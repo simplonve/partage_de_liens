@@ -3,7 +3,6 @@
 import os
 from datetime import date
 import rethinkdb as rdb
-import jeudelavie as jdv
 from rethinkdb.errors import RqlRuntimeError, RqlDriverError
 from time import localtime, strftime
 from flask import Flask, request, redirect, flash, render_template, g, jsonify, abort
@@ -73,10 +72,10 @@ def main():
                 id = request.form['id']
                 titre = request.form['titre']
                 lien = request.form['lien']
-                descr = request.form['description']
+                description = request.form['description']
                 categorie = request.form['categorie']
-                modif(titre, lien, descr, id, categorie)
-                list_lien = list(rdb.table('lien').order_by('titre').run(g.rdb_conn))
+                modif(titre, lien, description, id, categorie)
+                list_lien = list(rdb.db('partage').table('lien').order_by('titre').run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien)
 
             elif request.form["submit"] == "insert":
@@ -85,23 +84,23 @@ def main():
                 descr = request.form['description']
                 categorie = request.form['categorie']
                 requet(titre, lien, descr, categorie)
-                list_lien = list(rdb.table('lien').order_by('titre').run(g.rdb_conn))
+                list_lien = list(rdb.db('partage').table('lien').order_by('titre').run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien)
 
             elif request.form["submit"] == "supprimer":
                 id = request.form['id']
                 delete(id)
-                list_lien = list(rdb.table('lien').order_by('titre').run(g.rdb_conn))
+                list_lien = list(rdb.db('partage').table('lien').order_by('titre').run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien)
 
             elif request.form["submit"] == "tri":
                 categorie = request.form['categorie']
-                list_lien = list(rdb.table('lien').filter({'categorie' : categorie}).run(g.rdb_conn))
+                list_lien = list(rdb.db('partage').table('lien').filter({'categorie' : categorie}).run(g.rdb_conn))
                 return render_template('index.html', list_lien=list_lien, cat=categorie)
 
-@app.route('/Jeudelavie')
-def gameoflife():
-    return render_template('jeudelavie.html', titre='Game Of Life', jeudelavie=jdv)
+            elif request.form["submit"] == "tout":
+                list_lien = list(rdb.db('partage').table('lien').run(g.rdb_conn))
+                return render_template('index.html', list_lien=list_lien)
 
 if __name__ == '__main__':
     app.secret_key = '\xf8\xff\xbc\xfe\xde\x03\x8b\x81\xc9\x9c\xc4\xbe\x95\xa2\xf2'
