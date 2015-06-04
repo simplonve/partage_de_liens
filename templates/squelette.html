@@ -23,13 +23,11 @@
     <nav class="container-fluid navbar navbar-inverse"><div class="navbar-form navbar-left">{% block ajout %}{% endblock %}</div><h1 class="text-center">Partage de liens</h1></nav>
 
     <div class="row>">
-         <div class="col-md-1">
+         <div class="col-md-2">{% block categorie %}{% endblock %}
          </div>
-         <div class="col-md-7">{% block corps %}{% endblock %}
+         <div class="col-md-8">{% block corps %}{% endblock %}
          </div>
-         <div class="col-md-3">{% block categorie %}{% endblock %}
-         </div>
-         <div class="col-md-1">
+         <div class="col-md-2">
          </div>
     </div>
 
