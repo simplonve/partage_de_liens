@@ -8,12 +8,26 @@
 
 {% block ajout %}
 <form method="POST">
-            <label for="submit">Ajoutez un lien</label>
+            <label for="submit" id="clair">Ajoutez un lien</label>
             <input type="submit" class="btn btn-primary btn-lg" name="submit" value="ajouter"></input>
 </form>
 {% endblock %}
 
-
+ {% block categorie %}
+<form  method="POST">
+           <select name="categorie" size="7">
+           <option value="/culture">Culture
+           <option value="/videos">Videos
+           <option value="/tutos">Tutoriels
+           <option value="/logiciels">Logiciels
+           <option value="/doc">Documentations
+           <option value="/divers">Divers
+           <option value="/ux">UX
+           </select><br />
+           <input type="submit" name="submit" value="tri">
+           <input type="submit" name="submit" value="tout">
+</form>
+{% endblock %}
 
 {% block corps %}
   <div class="modal-fade">
@@ -23,7 +37,7 @@
  <form method="POST">
             <div class="modal-header"><h3 class="modal-title"><a href="{{ lien['url'] }}">{{ lien['titre'] }}</a></h3>
             </div>
-             <div class="modal-body"><p>Description  : {{ lien['description'] }}</p>
+             <div class="modal-body"><p class="lead">Description  : {{ lien['description'] }}</p>
              </div>
             <div class="modal-footer">
                    <input type="submit" class="btn btn-warning" data-dismiss="modal" name="submit" value="modifier"></input>
@@ -40,6 +54,7 @@
          </div>
       </div>
     </div>
+
    {% endblock %}
    {% block categorie %}
 <form  method="POST">
@@ -57,3 +72,4 @@
 </form>
 </div>
 {% endblock %}
+
