@@ -16,13 +16,13 @@
  {% block categorie %}
 <form  method="POST">
            <select name="categorie" size="7">
-           <option value="/culture">Culture
-           <option value="/videos">Videos
-           <option value="/tutos">Tutoriels
-           <option value="/logiciels">Logiciels
-           <option value="/doc">Documentations
-           <option value="/divers">Divers
-           <option value="/ux">UX
+               <option value="divers" selected>Divers
+               <option value="articles">Articles
+               <option value="github">GitHub
+               <option value="videos">Videos
+               <option value="docs">Docs
+               <option value="e-learning">E-learning
+               <option value="detente">Detente
            </select><br />
            <input type="submit" name="submit" value="tri">
            <input type="submit" name="submit" value="tout">
@@ -56,20 +56,4 @@
     </div>
 
    {% endblock %}
-   {% block categorie %}
-<form  method="POST">
-               <select name="categorie" size="5">
-               <option value="divers">Divers
-               <option value="articles">Articles
-               <option value="github">GitHub
-               <option value="videos">Videos
-               <option value="docs">Docs
-               <option value="e-learning">E-learning
-               <option value="detente">Detente
-              </select>
-              <input type="submit" name="submit" value="tri">
-              <input type="submit" name="submit" value="tout">
-</form>
-</div>
-{% endblock %}
 
